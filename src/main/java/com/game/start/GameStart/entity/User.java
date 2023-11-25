@@ -2,31 +2,30 @@ package com.game.start.GameStart.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
-import java.util.Set;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Osoby {
-
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long userId  ;
+    private Long id;
 
-    private String imie;
-    private String nazwisko;
+    private String name;
+    private String surname;
 
     private String login ;
+    private String email ;
     @JsonIgnore
     private String password  ;
     @JsonIgnore
     private byte[] salt;
-    private String email ;
 
     @OneToOne
-    private Klienci klient;//nullable
+    private Client client;
     @OneToOne
-    private Pracownicy pracownik;
+    private Worker worker;
 
 
 }

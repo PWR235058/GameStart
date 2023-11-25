@@ -1,6 +1,9 @@
 package com.game.start.GameStart.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,17 +12,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Klienci {
-
+public class Worker {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long KlientId;
+    private Long id;
 
-    private String miejscowosc;
-    private String ulica;
-    private String numerDomu;
-
-    //@OneToOne
-    //private Osoby user;
+    private String position;
+    private int pay;
 
 }

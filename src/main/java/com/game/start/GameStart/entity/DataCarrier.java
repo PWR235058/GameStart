@@ -12,20 +12,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Pracownicy {
+public class DataCarrier {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-    private String stanowisko;
-    private int pensja;
-
-
-
-    //private int idSklepu;
-
-
-    //@OneToOne
-    //private Osoby user;
-
+    private String name;
+    private String urzadzenie;
 }

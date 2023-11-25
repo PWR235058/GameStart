@@ -6,21 +6,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
-import java.util.Set;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Sklepy {
+public class Shop {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-    private String miejscowosc;
-    private String ulica;
-    private String nrDomu;
-
+    private Address address;
     @ManyToMany
-    private List<Pracownicy> pracownicy;
+    private List<Worker> workers;
 }

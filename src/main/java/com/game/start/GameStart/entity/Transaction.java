@@ -9,16 +9,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Transakcje {
+public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @ManyToOne
-    private Klienci klient;
+    private Client client;
     @ManyToOne
-    private Produkty produkt;
+    private Product product;
 
-    private String rodzajAkcji;//wymiana/kupno/wyporzyczyć
+    private String actionType;//wymiana/kupno/wyporzyczyć
     private float koszt;
 }
