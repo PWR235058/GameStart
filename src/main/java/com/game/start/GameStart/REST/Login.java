@@ -4,6 +4,7 @@ import com.game.start.GameStart.entity.Session;
 import com.game.start.GameStart.jpa.SessionRepository;
 import com.game.start.GameStart.jpa.UserRepository;
 import com.game.start.GameStart.entity.User;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -33,7 +34,7 @@ public class Login {
      * @param map
      * @return ok:false if error and ok:true,data:{token:"randomchars"} if succes, the token is also saved in session cookies
      */
-    @PostMapping("/api/user/login")
+    @PostMapping("/api/login")
     String login(@RequestBody Map<String,String> map) throws NoSuchAlgorithmException, InvalidKeySpecException {
         User u = null;
         if(!map.containsKey("password"))return "{\"ok\":false,\"data\":{\"message\":\"missing password\"}}";
@@ -65,7 +66,7 @@ public class Login {
      * @param key
      */
     @Transactional
-    @DeleteMapping("/api/user/logout")
+    @DeleteMapping("/api/logout")
     public void logout(@RequestParam(required = false) String key) {
         if(key==null){
             ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
@@ -83,7 +84,7 @@ public class Login {
      * @param map
      * @return json with ok:true if succeded or ok:false,data:{message:"error text"} if failed
      */
-    @PostMapping("/api/user/register")
+    @PostMapping("/api/register")
     String register(@RequestBody Map<String,String> map) throws NoSuchAlgorithmException, InvalidKeySpecException {
         if(map.isEmpty())return "{\"ok\":false,\"data\":{\"message\":\"Hello there\"}}";
         if(!map.containsKey("login"))return "{\"ok\":false,\"data\":{\"message\":\"missing username\"}}";
@@ -113,24 +114,29 @@ public class Login {
     }
 
     /**
+     * key = null
      * funkcja do użycia, gdy chcemy sprawdzić czy jakikolwiek użytkownik jest zalogowany
     */
     boolean checkfast(String key){
         if(key==null){
             ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
-            HttpSession session = attr.getRequest().getSession();
-            key = (String) session.getAttribute("token");
+            HttpServletRequest request = attr.getRequest();
+            key = (String) request.getSession().getAttribute("token");
+            if(key == null){
+                key = request.getParameter("key");
+            }
         }
         if(key==null)return false;
         return tokens.findByToken(key) != null;
     }
 
     /**
+     * użycie: /testlogin?key=token
      *  endpoint for checking if you are still logged in
      * @param key token given during login, it will load from cookies if null
      * @return json with ok:true/false if user is logged or not
      */
-    @GetMapping("/api/user/testlogin")
+    @GetMapping("/api/testlogin")
     String check(@RequestParam(required = false) String key) {
         if(checkfast(key)){
             return "{\"ok\":true}";

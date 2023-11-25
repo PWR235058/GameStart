@@ -2,6 +2,7 @@ package com.game.start.GameStart.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.lang.NonNullFields;
 
 @Data
 @NoArgsConstructor
@@ -15,8 +16,8 @@ public class User {
     private String name;
     private String surname;
 
-    private String login ;
-    private String email ;
+    private String login ;//todo @unique but i don't know how
+    private String email ;//@unique?
     @JsonIgnore
     private String password  ;
     @JsonIgnore
