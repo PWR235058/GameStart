@@ -1,0 +1,14 @@
+<h1>
+    Hello World!
+</h1>
+<p id="list"></p>
+<script>
+    let l = document.getElementById('list');
+    fetch('/findall', {
+        method: 'GET'
+      })
+      .then(result => {
+        l.innerHTML = JSON.stringify(result.json());
+      })
+      .catch(error => console.error('Error:', error));
+</script>

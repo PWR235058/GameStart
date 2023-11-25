@@ -15,6 +15,7 @@ public class Shop {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @OneToOne
     private Address address;
     @ManyToMany
     private List<Worker> workers;
