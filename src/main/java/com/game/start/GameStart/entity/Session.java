@@ -9,6 +9,8 @@ import lombok.*;
 @Entity
 public class Session {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String token;
     @OneToOne
     private User user;

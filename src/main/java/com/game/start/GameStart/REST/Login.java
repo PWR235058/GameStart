@@ -1,6 +1,10 @@
 package com.game.start.GameStart.REST;
 
+import com.game.start.GameStart.entity.Address;
+import com.game.start.GameStart.entity.Client;
 import com.game.start.GameStart.entity.Session;
+import com.game.start.GameStart.jpa.AddressRepository;
+import com.game.start.GameStart.jpa.ClientRepository;
 import com.game.start.GameStart.jpa.SessionRepository;
 import com.game.start.GameStart.jpa.UserRepository;
 import com.game.start.GameStart.entity.User;
@@ -27,6 +31,10 @@ public class Login {
     @Autowired
     private UserRepository users;
     @Autowired
+    private AddressRepository adres;
+    @Autowired
+    private ClientRepository client;
+    @Autowired
     private SessionRepository tokens;
 
     /**
@@ -52,7 +60,7 @@ public class Login {
         while (tokens.findByToken(token) != null) {
             token = randomString(40);
         }
-        tokens.save(new Session(token, u));
+        tokens.save(new Session(0L, token, u));
 
         ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
         HttpSession session = attr.getRequest().getSession();
@@ -90,6 +98,11 @@ public class Login {
         if(!map.containsKey("login"))return "{\"ok\":false,\"data\":{\"message\":\"missing username\"}}";
         if(!map.containsKey("password"))return "{\"ok\":false,\"data\":{\"message\":\"missing password\"}}";
         if(!map.containsKey("email"))return "{\"ok\":false,\"data\":{\"message\":\"missing email\"}}";
+        if(!map.containsKey("country"))return "{\"ok\":false,\"data\":{\"message\":\"missing country\"}}";
+        if(!map.containsKey("city"))return "{\"ok\":false,\"data\":{\"message\":\"missing city\"}}";
+        if(!map.containsKey("postalcode"))return "{\"ok\":false,\"data\":{\"message\":\"missing postalcode\"}}";
+        if(!map.containsKey("street"))return "{\"ok\":false,\"data\":{\"message\":\"missing street\"}}";
+        if(!map.containsKey("address"))return "{\"ok\":false,\"data\":{\"message\":\"missing address\"}}";
         if(users.findByLogin(map.get("login"))!=null)return "{\"ok\":false,\"data\":{\"message\":\"username is already taken\"}}";
         if(users.findByEmail(map.get("email"))!=null)return "{\"ok\":false,\"data\":{\"message\":\"email is already in use\"}}";
         if(map.get("password").length()<3)return "{\"ok\":false,\"data\":{\"message\":\"password is too short\"}}";
@@ -100,15 +113,11 @@ public class Login {
         byte[] salt=new byte[16];
         for(int i=0;i<16;i++)
             salt[i]= ((byte) (Math.random()*256));
-        User u =new User(0L,"anonymous","unset",map.get("login"),map.get("email"),passhash(salt,map.get("passwprd")),salt,null,null);
-        /*
-            todo: imie nazwisko
-            czy klientem lub czy pracownikiem
-         */
-        if(map.containsKey("clientid"))
-            u.setClient(null);
-        if(map.containsKey("workerid")||map.containsKey("shopid"))
-            u.setWorker(null);
+        Address a = new Address(0L,map.get("country"),map.get("city"),map.get("street"),map.get("address"),map.get("postalcode"));
+        a = adres.save(a);
+        Client c = new Client(0L,false,a);
+        c = client.save(c);
+        User u =new User(0L,"anonymous","none",map.get("login"),map.get("email"),passhash(salt,map.get("password")),salt,c,null);
         users.save(u);
         return "{\"ok\":true}";
     }
