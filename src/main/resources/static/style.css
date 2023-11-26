@@ -6,41 +6,74 @@ body {
     margin: 0;
 }
 
+#menu {
+    width: 100%;
+    background-color: rgb(56, 196, 196);
+}
+
+#logo_img {
+    margin: 5px;
+    width: 100px;
+    height: auto;
+    float: left;
+}
+
+#szukaj
+{
+    height: 70px;
+    width: 500px;
+    background-color: yellow;
+    border: 1px solid black;
+}
+
+#szukaj_input
+{
+    border: none;
+    float: left;
+    margin-top: 15px;
+    height: 50px;
+    background-color: white;
+}
+
 #login-form {
     text-align: center;
 }
 
 #logo {
-    width: 428px; /* dostosuj szerokość logo do własnych potrzeb */
-    height: auto; /* utrzymanie proporcji */
+    width: 428px;
+    /* dostosuj szerokość logo do własnych potrzeb */
+    height: auto;
+    /* utrzymanie proporcji */
     margin-bottom: 40px;
 }
 
 input {
-	background-color: #D9D9D9;
+    background-color: #D9D9D9;
     margin-bottom: 20px;
     padding: 16px;
     width: 378px;
     box-sizing: border-box;
-	font-size: 20px;
+    font-size: 20px;
 }
 
 button {
-    background-color: #0076C4; /* Ustawienie koloru tła przycisku na niebieski */
-    color: white; /* Ustawienie koloru tekstu na biały */
-    padding: 16px; /* Dostosowanie paddingu do pól tekstowych */
-    width: 378px; /* Dostosowanie szerokości do pól tekstowych */
+    background-color: #0076C4;
+    /* Ustawienie koloru tła przycisku na niebieski */
+    color: white;
+    /* Ustawienie koloru tekstu na biały */
+    padding: 16px;
+    /* Dostosowanie paddingu do pól tekstowych */
+    width: 378px;
+    /* Dostosowanie szerokości do pól tekstowych */
     box-sizing: border-box;
     border: none;
     cursor: pointer;
-	font-size: 20px;
-	border-radius: 20px;
+    font-size: 20px;
+    border-radius: 20px;
 }
 
 #register-link {
     color: blue;
     text-decoration: none;
-	font-size: 16px;
+    font-size: 16px;
 }
-
-

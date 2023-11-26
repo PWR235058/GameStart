@@ -19,6 +19,10 @@ public class GameStartApplication {
 	public String index(){
 		return "index.html";
 	}
+	@GetMapping("/login")
+	public String login(){
+		return "login.html";
+	}
 	@GetMapping("/register")
 	public String rejestracja(){
 		return "register.html";
