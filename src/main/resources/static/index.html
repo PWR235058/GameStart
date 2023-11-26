@@ -6,20 +6,76 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Strona główna GameStart</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Londrina+Solid&family=Rubik&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
-    <nav id="menu">
+  <div id="menu">
+    <a href="index.html" id="logo_href">
       <img src="img/logo.png" alt="logo GameStart" id="logo_img">
-      <div id="szukaj">
-        <input type="text" name="szukaj_produktow" id="szukaj_input" placeholder="Szukaj w GameStart">
-        <div id="lupa"></div>
+    </a>
+    <div id="szukaj">
+      <input type="text" name="szukaj_produktow" id="szukaj_input" placeholder="Szukaj w GameStart">
+      <div id="lupa">
+        <img src="img/lupa.png" alt="szukaj_button">
       </div>
-    </nav>
+      <div style="clear: both;"> </div>
+    </div>
+    <div style="max-width: 30%; width: 30%; float: left;"></div>
+    <a href="register.html" class="menu_href">
+      <div id="register" class="menu_button">
+        <img src="img/utworzkonto.png" alt="register_button"><br>
+        <span class="menu_button_text">Utwórz konto</span>
+      </div>
+    </a>
+    <a href="login.html" class="menu_href">
+      <div id="login" class="menu_button">
+        <img src="img/ustawienia.png" alt="login_button"><br>
+        <span class="menu_button_text">Zaloguj się</span>
+      </div>
+    </a><a href="basket.html" class="menu_href">
+      <div id="basket" class="menu_button">
+        <img src="img/koszyk.png" alt="basket_button"><br>
+        <span class="menu_button_text">Koszyk</span>
+      </div>
+    </a>
+    <div style="clear: both;"> </div>
+  </div>
 
   <div id="container">
+    <div class="row">
+      <div class="game-container">
+        <div class="game-image-container">
+          <img src="img/gta.png" alt="Grand Theft Auto VI" class="game-image">
+        </div>
+        <div class="game-price">316.99 zł</div>
+        <div class="game-title">Grand Theft Auto VI</div>
+        <div class="game-author">Sprzedawca: BigSmoke125kg</div>
+      </div>
+      <div class="game-container">
+        <div class="game-image-container">
+          <img src="img/minecraft2.jpg" alt="Grand Theft Auto VI" class="game-image">
+        </div>
+        <div class="game-price">159.99 zł</div>
+        <div class="game-title">Minecraft 2</div>
+        <div class="game-author">Sprzedawca: DefinitelyNotNotch</div>
+      </div>
+      <div class="game-container">
+        <div class="game-image-container">
+          <img src="img/halflive3.png" alt="Grand Theft Auto VI" class="game-image">
+        </div>
+        <div class="game-price">269.99 zł</div>
+        <div class="game-title">Half-Live 3</div>
+        <div class="game-author">Sprzedawca: GabeNewel57</div>
+      </div>
+    </div>
 
   </div>
+
 </body>
 
 </html>
