@@ -19,6 +19,14 @@ public class GameStartApplication {
 	public String index(){
 		return "index.html";
 	}
+	@GetMapping("/logo.png")
+	public String logo(){
+		return "logo.png";
+	}
+	@GetMapping("/style.css")
+	public String style(){
+		return "style.css";
+	}
 	public static void main(String[] args) {
 		SpringApplication.run(GameStartApplication.class, args);
 	}

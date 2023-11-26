@@ -1,0 +1,46 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#login-form {
+    text-align: center;
+}
+
+#logo {
+    width: 428px; /* dostosuj szerokość logo do własnych potrzeb */
+    height: auto; /* utrzymanie proporcji */
+    margin-bottom: 40px;
+}
+
+input {
+	background-color: #D9D9D9;
+    margin-bottom: 20px;
+    padding: 16px;
+    width: 378px;
+    box-sizing: border-box;
+	font-size: 20px;
+}
+
+button {
+    background-color: #0076C4; /* Ustawienie koloru tła przycisku na niebieski */
+    color: white; /* Ustawienie koloru tekstu na biały */
+    padding: 16px; /* Dostosowanie paddingu do pól tekstowych */
+    width: 378px; /* Dostosowanie szerokości do pól tekstowych */
+    box-sizing: border-box;
+    border: none;
+    cursor: pointer;
+	font-size: 20px;
+	border-radius: 20px;
+}
+
+#register-link {
+    color: blue;
+    text-decoration: none;
+	font-size: 16px;
+}
+
+
