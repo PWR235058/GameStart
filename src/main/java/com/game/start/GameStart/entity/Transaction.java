@@ -19,6 +19,6 @@ public class Transaction {
     @ManyToOne
     private Product product;
 
-    private String actionType;//wymiana/kupno/wyporzyczyć
+    private TransactionAction actionType;
     private float koszt;
 }

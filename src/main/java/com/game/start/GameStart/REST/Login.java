@@ -22,7 +22,6 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Map;
 
 @RestController
@@ -126,7 +125,7 @@ public class Login {
      * key = null
      * funkcja do użycia, gdy chcemy sprawdzić czy jakikolwiek użytkownik jest zalogowany
     */
-    boolean checkfast(String key){
+    User getUser(String key){
         if(key==null){
             ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
             HttpServletRequest request = attr.getRequest();
@@ -135,8 +134,8 @@ public class Login {
                 key = request.getParameter("key");
             }
         }
-        if(key==null)return false;
-        return tokens.findByToken(key) != null;
+        if(key==null)return null;
+        return tokens.findByToken(key).getUser();
     }
 
     /**
@@ -147,7 +146,7 @@ public class Login {
      */
     @GetMapping("/api/testlogin")
     String check(@RequestParam(required = false) String key) {
-        if(checkfast(key)){
+        if(getUser(key)!=null){
             return "{\"ok\":true}";
         }
         return "{\"ok\":false}";

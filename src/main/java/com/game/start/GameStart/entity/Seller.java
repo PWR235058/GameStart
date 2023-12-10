@@ -9,19 +9,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Product {
+public class Seller {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-    @ManyToOne
-    private DataCarrier dataCarrier;
-    @ManyToOne
-    private Seller seller;
-    @ManyToOne
-    private ProductType productType;
-
-    private int stock;
-    private float price;
-
+    private String name;
+    @OneToOne
+    private Shop shop;
+    @OneToOne
+    private Client client;
 }
