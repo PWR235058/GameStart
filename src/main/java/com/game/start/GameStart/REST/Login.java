@@ -1,13 +1,7 @@
 package com.game.start.GameStart.REST;
 
-import com.game.start.GameStart.entity.Address;
-import com.game.start.GameStart.entity.Client;
-import com.game.start.GameStart.entity.Session;
-import com.game.start.GameStart.jpa.AddressRepository;
-import com.game.start.GameStart.jpa.ClientRepository;
-import com.game.start.GameStart.jpa.SessionRepository;
-import com.game.start.GameStart.jpa.UserRepository;
-import com.game.start.GameStart.entity.User;
+import com.game.start.GameStart.entity.*;
+import com.game.start.GameStart.jpa.*;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +29,10 @@ public class Login {
     private ClientRepository client;
     @Autowired
     private SessionRepository tokens;
+    @Autowired
+    ShopRepository sklepy;
+    @Autowired
+    SellerRepository sprzedawcy;
 
     /**
      * endpoint for logging in
@@ -136,6 +134,25 @@ public class Login {
         }
         if(key==null)return null;
         return tokens.findByToken(key).getUser();
+    }
+
+    Seller getSeller(){
+        User user = getUser(null);
+        if(user==null)return null;
+        Seller seller = null;
+        Client client = user.getClient();
+        if(client!=null)
+            seller=sprzedawcy.findByClient(client);
+        if(seller==null) {
+            Worker worker= user.getWorker();
+            if(worker!=null){
+                Shop shop = sklepy.findByWorkersContains(worker);
+                if(shop!=null){
+                    seller = sprzedawcy.findByShop(shop);
+                }
+            }
+        }
+        return seller;
     }
 
     /**
