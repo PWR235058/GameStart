@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strona główna GameStart</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Londrina+Solid&family=Rubik&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div id="menu">
+    <a href="index.html" id="logo_href">
+      <img src="img/logo.png" alt="logo GameStart" id="logo_img">
+    </a>
+    <div id="szukaj">
+      <input type="text" name="szukaj_produktow" id="szukaj_input" placeholder="Szukaj w GameStart">
+      <div id="lupa">
+        <img src="img/lupa.png" alt="szukaj_button">
+      </div>
+      <div style="clear: both;"> </div>
+    </div>
+    <div style="max-width: 30%; width: 30%; float: left;"></div>
+    <a href="produkty.html" class="menu_href">
+      <div id="utworz_konto" class="menu_button">
+        <img src="img/produkty.png" alt="produkty_button"><br>
+        <span class="menu_button_text">Twoje produkty</span>
+      </div>
+    </a>
+    <a href="ustawienia.html" class="menu_href">
+      <div id="logowanie" class="menu_button">
+        <img src="img/ustawienia.png" alt="logowanie_button"><br>
+        <span class="menu_button_text">Ustawienia konta</span>
+      </div>
+    </a><a href="koszyk.html" class="menu_href">
+      <div id="koszyk" class="menu_button">
+        <img src="img/koszyk.png" alt="koszyk_button"><br>
+        <span class="menu_button_text">Koszyk</span>
+      </div>
+    </a>
+    <div style="clear: both;"> </div>
+  </div>
+
+  <div id="container">
+    <h1>Zawartość koszyka:</h1>
+
+  <div class="product-tile">
+    <img src="img/halflive3.png" alt="Produkt 1" class="product-logo">
+    <div class="product-details">
+      <h3>Half-Live 3</h3>
+      <p>Cena: 269.99 zł</p>
+    </div>
+    <img src="img/kosz.png" alt="Kosz" class="cart-icon">
+  </div>
+
+  <div class="product-tile">
+    <img src="img/gta.png" alt="Produkt 2" class="product-logo">
+    <div class="product-details">
+      <h3>Grand Theft Auto VI</h3>
+      <p>Cena: 300.99 zł</p>
+    </div>
+    <img src="img/kosz.png" alt="Kosz" class="cart-icon">
+  </div>
+
+  <!-- Dodaj więcej kafelków dla innych produktów, jeśli są potrzebne -->
+
+  <div style="text-align: right;">
+    <button id="buy-now-button">Kup teraz</button>
+  </div>
+</div>
+
+</body>
+
+</html>
