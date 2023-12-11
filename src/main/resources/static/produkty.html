@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Strona główna GameStart</title>
   <link rel="stylesheet" href="style.css">
-  <script src="scripts.js"></script>
+  <script type="text/javascript" src="scripts.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -14,14 +14,14 @@
     rel="stylesheet">
 </head>
 
-<body onload="onLoad(1)">
+<body onload="onLoad(3)">
   <div id="menu">
     <a href="mainpage.html" id="logo_href">
       <img src="img/logo.png" alt="logo GameStart" id="logo_img">
     </a>
     <div id="szukaj">
       <input type="text" name="szukaj_produktow" id="szukaj_input" placeholder="Szukaj w GameStart">
-      <div id="lupa"onclick="redirect()">
+      <div id="lupa" onclick="redirect()">
         <img src="img/lupa.png" alt="szukaj_button">
       </div>
       <div style="clear: both;"> </div>
@@ -48,15 +48,14 @@
   </div>
 
   <div id="container">
-    <h1 style="margin-left: 10%;">Zawartość koszyka:</h1>
-    <div id="cart-items">
+    <h1 style="margin-left: 10%;">Twoje transakcje:</h1>
+      <div id="transaction-items" style="margin: auto;">
         
-    </div>
-    <!-- Dodaj więcej kafelków dla innych produktów, jeśli są potrzebne -->
+      </div>
+      <div style="text-align: right;">
+        <a href="AddProduct.html"><button id="add-product-button" style="margin-right: 10%;">Dodaj produkt</button></a>
+      </div>
 
-    <div style="text-align: right;" onclick="kup();">
-      <button id="buy-now-button" tyle="margin-right: 10%;">Kup teraz</button>
-    </div>
   </div>
 
 </body>

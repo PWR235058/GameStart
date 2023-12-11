@@ -13,7 +13,7 @@
     rel="stylesheet">
 </head>
 
-<body>
+<body onload="onLoad(4)">
 <script src="/scripts.js"></script>
 <script>
   checkUser();//przejście na stronę dla zalogowanych użytkowników
@@ -24,7 +24,7 @@
     </a>
     <div id="szukaj">
       <input type="text" name="szukaj_produktow" id="szukaj_input" placeholder="Szukaj w GameStart">
-      <div id="lupa">
+      <div id="lupa" onclick="filterProducts()">
         <img src="img/lupa.png" alt="szukaj_button">
       </div>
       <div style="clear: both;"> </div>
@@ -41,7 +41,7 @@
         <img src="img/ustawienia.png" alt="login_button"><br>
         <span class="menu_button_text">Zaloguj się</span>
       </div>
-    </a><a href="basket.html" class="menu_href">
+    </a><a href="login.html" class="menu_href">
       <div id="basket" class="menu_button">
         <img src="img/koszyk.png" alt="basket_button"><br>
         <span class="menu_button_text">Koszyk</span>
@@ -59,6 +59,7 @@
         <div class="game-price">316.99 zł</div>
         <div class="game-title">Grand Theft Auto VI</div>
         <div class="game-author">Sprzedawca: BigSmoke125kg</div>
+        
       </div>
       <div class="game-container">
         <div class="game-image-container">
@@ -73,8 +74,8 @@
           <img src="img/halflive3.png" alt="Grand Theft Auto VI" class="game-image">
         </div>
         <div class="game-price">269.99 zł</div>
-        <div class="game-title">Half-Live 3</div>
-        <div class="game-author">Sprzedawca: GabeNewel57</div>
+        <div class="game-title">Half-Life 3</div>
+        <div class="game-author">Sprzedawca: GabeNewell57</div>
       </div>
     </div>
 
