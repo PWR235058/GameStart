@@ -17,5 +17,5 @@ public class DataCarrier {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    private String urzadzenie;
+    private String hardware;
 }

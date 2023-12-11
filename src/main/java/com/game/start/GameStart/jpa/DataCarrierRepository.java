@@ -5,4 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface DataCarrierRepository
         extends JpaRepository<DataCarrier, Long> {
+    DataCarrier findByName(String name);
 }

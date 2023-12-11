@@ -26,7 +26,7 @@ public class Search {
     }
     @GetMapping("/api/products")
     ProductList findAll(){
-        return new ProductList(produkty.findAll());
+        return new ProductList(produkty.findAllByStockGreaterThan(0));
     }
     @GetMapping("/api/products/{name}")
     ProductList findName(@PathVariable String name){

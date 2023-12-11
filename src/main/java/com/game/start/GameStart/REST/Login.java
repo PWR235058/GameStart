@@ -133,7 +133,9 @@ public class Login {
             }
         }
         if(key==null)return null;
-        return tokens.findByToken(key).getUser();
+        Session s = tokens.findByToken(key);
+        if(s==null)return null;
+        return s.getUser();
     }
     Client getClient(){
         User u = getUser(null);
@@ -146,8 +148,11 @@ public class Login {
         if(user==null)return null;
         Seller seller = null;
         Client client = user.getClient();
-        if(client!=null)
-            seller=sprzedawcy.findByClient(client);
+        if(client!=null) {
+            seller = sprzedawcy.findByClient(client);
+            if(seller==null)
+                seller = sprzedawcy.save(new Seller(0L, user.getLogin(),null,client));
+        }
         if(seller==null) {
             Worker worker= user.getWorker();
             if(worker!=null){
