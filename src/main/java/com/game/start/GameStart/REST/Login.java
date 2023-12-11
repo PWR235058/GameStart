@@ -135,6 +135,11 @@ public class Login {
         if(key==null)return null;
         return tokens.findByToken(key).getUser();
     }
+    Client getClient(){
+        User u = getUser(null);
+        if(u==null)return null;
+        return u.getClient();
+    }
 
     Seller getSeller(){
         User user = getUser(null);

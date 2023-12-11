@@ -27,7 +27,7 @@ public class ProductsController {
 
 
 
-    @PostMapping("/products")
+    @PostMapping("/api/products")
     void addnew(@RequestBody Product p){
         Seller seller = sessions.getSeller();
         if(seller==null)return;
@@ -36,7 +36,7 @@ public class ProductsController {
 
         produkty.save(product);
     }
-    @PutMapping("/products")
+    @PutMapping("/api/products")
     void modify(@RequestBody Product p){
         Seller seller = sessions.getSeller();
         if(seller==null)return;

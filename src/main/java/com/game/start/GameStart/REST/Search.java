@@ -20,15 +20,15 @@ public class Search {
 
     @Autowired
     DataCarrierRepository nosniki;
-    @GetMapping("/carrier")
+    @GetMapping("/api/carrier")
     List<DataCarrier> getCarriers(){
         return nosniki.findAll();
     }
-    @GetMapping("/products")
+    @GetMapping("/api/products")
     ProductList findAll(){
         return new ProductList(produkty.findAll());
     }
-    @GetMapping("/products/{name}")
+    @GetMapping("/api/products/{name}")
     ProductList findName(@PathVariable String name){
         ProductList productList = new ProductList(produkty.findAll());
         ProductList productr = new ProductList(new ArrayList<>());
