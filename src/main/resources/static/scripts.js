@@ -106,7 +106,7 @@ function onLoad(strona) {
 			showItemsInCart();
 		});
 	}
-	else if (strona == 2) {
+	else if (strona == 2) {//mainpage
 		console.log("else");
 		try {
 			showProducts();
@@ -130,7 +130,7 @@ function onLoad(strona) {
 			}
 		}
 	}
-	else if (strona == 3) {///
+	else if (strona == 3) {//
 		fetchData("api/transactions", data => {
 			transactions = data.productList;
 			console.log(data);
@@ -143,7 +143,12 @@ function onLoad(strona) {
 			console.log(e);
 		}
 	}
-	else if (strona == 4) {
+	else if (strona == 4) {//index
+		fetchData("/api/products", data => {
+			produkty = data.productList;
+			console.log(data);
+			showProducts();
+		});
 		checkUser().then(x => {
 			if (typeof Storage !== 'undefined') {
 				var doSzukania = localStorage.getItem('doSzukania');
