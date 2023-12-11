@@ -15,18 +15,17 @@ public class ProductDTO {
     float price;
     String seller;
     int stock;
+    String image;
     public ProductDTO(Product product){
         id = product.getId();
-        title = product.getSeller().getName();
+        title = product.getProductType().getTitle();
         price = product.getPrice();
         seller = product.getSeller().getName();
         stock = product.getStock();
+        image = product.getImageUrl();
     }
     public ProductDTO(Transaction transaction, boolean inv){
-        id = transaction.getProduct().getId();
-        title = transaction.getProduct().getSeller().getName();
+        this(transaction.getProduct());
         price = transaction.getKoszt()*(inv?-1:1);
-        seller = transaction.getProduct().getSeller().getName();
-        stock = transaction.getProduct().getStock();
     }
 }

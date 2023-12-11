@@ -10,8 +10,7 @@ import lombok.NoArgsConstructor;
 public class AddProduct {
     String title;
     float price;
-    String seller;
     int stock;
-    String carier;
-
+    int carrier;
+    String link;
 }

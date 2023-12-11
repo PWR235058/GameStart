@@ -23,5 +23,5 @@ public class Product {
 
     private int stock;
     private float price;
-
+    private String imageUrl;
 }
